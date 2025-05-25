@@ -1,12 +1,18 @@
 import logo from '../../assets/images/logo.png';
 import { Link } from 'react-router-dom';
 import CountryDropdown from '../CountryDropdown';
-import { IoSearch } from "react-icons/io5";
 import Button from '@mui/material/Button';
 import { FaRegCircleUser } from "react-icons/fa6";
 import { IoBagOutline } from "react-icons/io5";
+import SearchBox from './SearchBox';
+import Navigation from './Navigation';
+import { MyContext } from '../../App';
+import { useContext } from 'react';
 
 const Header = () => {
+
+    const context = useContext(MyContext);
+
     return (
         <>
             <div className="headerWrapper">
@@ -32,15 +38,13 @@ const Header = () => {
 
                             {/* Center section */}
                             <div className="col-sm-10 d-flex align-items-center part2">
-                                <CountryDropdown />
+                                {
+                                    context.countryList.length !== 0 && <CountryDropdown />
+                                }
+                                
 
                                 {/* Search box */}
-                                <div className="headerSearch ml-3 mr-3 d-flex align-items-center position-relative">
-                                    <input type="text" placeholder="Search for products, categories..." />
-                                    <Button className="searchBtn">
-                                        <IoSearch />
-                                    </Button>
-                                </div>
+                                <SearchBox />
 
                                 {/* User & Cart */}
                                 <div className="d-flex align-items-center part3 ml-auto">
@@ -60,10 +64,13 @@ const Header = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div> {/* End .part2 */}
+                            </div>
                         </div>
                     </div>
                 </header>
+
+                <Navigation />
+                
             </div>
         </>
     );
