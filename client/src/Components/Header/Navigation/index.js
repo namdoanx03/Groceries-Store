@@ -4,6 +4,7 @@ import { FaAngleDown } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import { CiHome } from "react-icons/ci";
 import { useState } from 'react';
+import { FaAngleRight } from "react-icons/fa";
 
 const Navigation = () => {
 
@@ -22,8 +23,24 @@ const Navigation = () => {
                             </Button>
                             <div className={`sidebarNav ${isOpenSidebarVal===true ? 'open' : ''}`}>
                                 <ul>
-                                    <li><Link to="/"><Button>clothing</Button></Link></li>
-                                    <li><Link to="/"><Button>footwear</Button></Link></li>
+                                    <li><Link to="/"><Button>clothing <FaAngleRight className='ml-auto'/></Button></Link>
+                                        <div className="submenu">
+                                            <Link to="/"><Button>clothing</Button></Link>
+                                            <Link to="/"><Button>clothing</Button></Link>
+                                            <Link to="/"><Button>clothing</Button></Link>
+                                            <Link to="/"><Button>clothing</Button></Link>
+                                            <Link to="/"><Button>clothing</Button></Link>
+                                        </div>
+                                    </li>
+                                    <li><Link to="/"><Button>footwear <FaAngleRight className='ml-auto'/></Button>
+                                    <div className="submenu">
+                                            <Link to="/"><Button>clothing</Button></Link>
+                                            <Link to="/"><Button>clothing</Button></Link>
+                                            <Link to="/"><Button>clothing</Button></Link>
+                                            <Link to="/"><Button>clothing</Button></Link>
+                                            <Link to="/"><Button>clothing</Button></Link>
+                                        </div>
+                                    </Link></li>
                                     <li><Link to="/"><Button>Watches</Button></Link></li>
                                     <li><Link to="/"><Button>clothing</Button></Link></li>
                                     <li><Link to="/"><Button>footwear</Button></Link></li>

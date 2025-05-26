@@ -8,6 +8,7 @@
 body{
   font-family: 'Public Sans', sans-serif; 
   font-size: 14px;
+  color: rgba(0,0,0,0.8);
 }
 
 .bg-blue{
@@ -19,6 +20,16 @@ body{
   max-width: 1200px ;
 }
 }
+
+.cursor{
+  cursor: pointer;
+}
+.text-element{
+  font-size: 14px;
+  color:#8b8b8b !important;
+}
+
+
 ::webkit-scrollbar{
   width: 8px !important;
   height: 8px !important;
@@ -247,7 +258,8 @@ nav .navPart1 .cartWrapper .sidebarNav.open{
 nav .navPart1 .cartWrapper .sidebarNav ul li{
   width: 100%;
   list-style: none;
-  padding: 0px 15px;
+  padding: 0px 10px;
+  position: static;
 }
 
 nav .navPart1 .cartWrapper .sidebarNav ul li button{
@@ -256,9 +268,38 @@ nav .navPart1 .cartWrapper .sidebarNav ul li button{
   justify-content: flex-start ;
   text-transform: capitalize !important;
 }
+nav .navPart1 .cartWrapper .sidebarNav ul li button svg{
+  font-size: 12px !important;
+  opacity: 0.6;
+}
 nav .navPart1 .cartWrapper .sidebarNav ul li button:hover{
   background: transparent !important;
 }
+nav .navPart1 .cartWrapper .sidebarNav ul li .submenu{
+  position: absolute;
+  top: 0px;
+  left: 100%;
+  width: 250px;
+  height: 100%;
+  background: #fff;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease-in-out;
+  border-left: 1px solid rgba(0,0,0,0.1);
+  padding: 20px;
+}
+nav .navPart1 .cartWrapper .sidebarNav ul li:hover .submenu{
+  opacity: 1;
+  visibility: inherit;
+  left: 100%;
+}
+nav .navPart1 .cartWrapper .sidebarNav ul li:hover .submenu button{
+  padding: 10px 20px !important;
+}
+
+
+
 
 nav .allCatTab{
   background: #2bbef9 ;
@@ -368,25 +409,145 @@ nav .navPart2 ul li:hover .submenu {
   height: 40px !important;
   background: #444444;
   border-radius: 100% ;
+  box-shadow: 0 1 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%) !important;
+  font-family: 'FontAwesome' !important;
   margin: 0 40px !important;
+  font-size: bold;
 }
 
 .homeBannerSection .slick-arrow::before{
   font-family: 'FontAwesome' !important;
-  color: #fff ;
+  color: #000 !important;
+  opacity: 0.8 !important;
+}
+
+.homeProducts{
+  padding: 50px 0px;
+  width: 100%;
+}
+
+.homeProducts .banner{
+  width: 100%;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.productRow .hd{
+  font-size: 20px;
+  font-weight: 600;
+}
+.viewAllBtn{
+  padding: 5px 25px !important;
+  border: 1px solid rgba(0,0,0,0.1) !important;
+  background: #fff;
+  border-radius: 30px !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+  text-transform: capitalize !important;
+  outline: none !important;
+}
+
+.viewAllBtn svg{
+  font-size: 20px;
+}
+.productItem{
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+.productItem .badge{
+  display: inline-block;
+  padding: 7px 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+}
+.productItem .productInfo{
+  padding: 15px;
+}
+
+.productItem .productInfo h4{
+  font-size: 15px;
+  font-weight: 600;
+}
+.productItem .productInfo .oldPrice{
+  font-size: 16px;
+  font-weight: bold;
+  color: rgba(0,0,0,0.2);
+  text-decoration: line-through;
+}
+.productItem .productInfo .newPrice{
+  font-size: 16px;
+  font-weight: bold;
+}
+.productItem .actions{
+  position: absolute;
+  top: 20px;
+  right: -100%;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  transition: all 0.3s ease-in-out ;
+}
+
+.productItem .actions button{
+  outline: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px !important;
+  height: 40px !important;
+  width: 40px !important;
+  border: 1px solid rgba(0,0,0,0.1) !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  transition: all 0.0s !important;
+}
+
+.productItem .actions button svg{
+  color: #000 !important;
+  opacity: 0.8 ;
+  pointer-events: none;
+  font-size: 15px ;
+}
+.productItem .imgWrapper{
+  overflow: hidden;
+}
+.productItem .imgWrapper img{
+  transition: all 0.3s ease-in-out ;
+}
+.productItem .imgWrapper:hover .actions{
+  opacity: 1 ;
+  right: 10px;
+}
+.productItem .imgWrapper:hover img{
+  transform: scale(1.1);
 }
 
 
+.productItem .actions button:hover {
+  background: #233a95 !important;
+}
+.productItem .actions button:hover svg{
+  color: #fff !important;
+}
 
+.product_row .productItem{
+  border-right: 1px solid transparent !important;
+}
+.product_row .swiper-slide:last-child .productItem{
+  border: 1px solid rgba(0,0,0,0.1) !important;
+}
 
-
-
-
-
-
-
-
-
+.swiper{
+  padding-right: 1px !important;
+}
+.badge-primary{
+  background: #2bbef9 !important;
+}
 
 
 
